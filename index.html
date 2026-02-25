@@ -10,8 +10,9 @@
 <style>
   :root {
     --bg: #f6f5f2;
-    --text: #2a2a2a;
-    --muted: #6f6f6f;
+    --text: #222;
+    --muted: rgba(0,0,0,.62);
+    --hairline: rgba(0,0,0,.14);
   }
 
   * { box-sizing: border-box; }
@@ -20,56 +21,70 @@
     margin: 0;
     background: var(--bg);
     color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
-    line-height: 1.5;
+    line-height: 1.45;
   }
 
   .wrap {
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 24px;
+    display: grid;
+    place-items: center;
+    padding: 56px 22px;
   }
 
   .container {
     width: 100%;
-    max-width: 620px;
+    max-width: 760px;
+    text-align: center;
   }
 
+  /* Logo sizing: larger and optically centered */
   .logo {
-    width: min(320px, 70vw);
+    width: clamp(220px, 34vw, 420px);
     height: auto;
     display: block;
-    margin-bottom: 28px;
+    margin: 0 auto 28px;
+    filter: drop-shadow(0 10px 24px rgba(0,0,0,.08));
   }
 
-  p {
-    margin: 0 0 14px;
-    font-size: 18px;
-    color: var(--muted);
-    max-width: 48ch;
+  .copy {
+    display: inline-block;           /* keeps the block visually tight */
+    text-align: center;
   }
+
+  .copy p {
+    margin: 0;
+    font-size: clamp(18px, 2.1vw, 22px);
+    color: var(--muted);
+    letter-spacing: -0.01em;
+  }
+
+  .copy p + p { margin-top: 10px; }
 
   .email {
-    margin-top: 24px;
     display: inline-block;
+    margin-top: 26px;
+    font-size: 16px;
     color: var(--text);
     text-decoration: none;
-    border-bottom: 1px solid rgba(0,0,0,0.15);
     padding-bottom: 2px;
-    transition: opacity 0.2s ease;
+    border-bottom: 1px solid var(--hairline);
+    transition: opacity .18s ease;
   }
 
-  .email:hover {
-    opacity: 0.6;
-  }
+  .email:hover { opacity: .65; }
 
   footer {
-    margin-top: 44px;
+    margin-top: 54px;
     font-size: 13px;
-    color: #9a9a9a;
+    color: rgba(0,0,0,.35);
+  }
+
+  /* Optional: if your logo has lots of whitespace around it,
+     this slightly compensates visually. Tweak -2px to -10px if needed. */
+  .logoNudge {
+    transform: translateX(-2px);
   }
 </style>
 </head>
@@ -77,26 +92,22 @@
 <body>
   <div class="wrap">
     <main class="container">
+      <!-- Keep logo.png in the same folder as index.html -->
+      <img src="logo.png" alt="Unburden" class="logo logoNudge" />
 
-      <!-- Replace logo.png with your actual file name -->
-      <img src="logo.png" alt="Unburden" class="logo" />
+      <div class="copy">
+        <p>We’re building it.</p>
+        <p>More when it’s ready.</p>
 
-      <p>We’re building it.</p>
-      <p>More when it’s ready.</p>
+        <a class="email" href="mailto:amedeo@unburden.bio">amedeo@unburden.bio</a>
 
-      <a class="email" href="mailto:amedeo@unburden.bio">
-        amedeo@unburden.bio
-      </a>
-
-      <footer>
-        © <span id="year"></span> Unburden
-      </footer>
+        <footer>© <span id="year"></span> Unburden</footer>
+      </div>
     </main>
   </div>
 
 <script>
-  document.getElementById("year").textContent =
-    new Date().getFullYear();
+  document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
