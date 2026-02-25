@@ -9,10 +9,9 @@
 
 <style>
   :root {
-    --bg: #f6f5f2;          /* soft off-white */
-    --text: #2a2a2a;        /* neutral dark */
+    --bg: #f6f5f2;
+    --text: #2a2a2a;
     --muted: #6f6f6f;
-    --accent: #0f8a78;      /* green-teal */
   }
 
   * { box-sizing: border-box; }
@@ -39,24 +38,22 @@
     max-width: 620px;
   }
 
-  h1 {
-    margin: 0 0 20px;
-    font-size: clamp(44px, 8vw, 84px);
-    font-weight: 600;
-    letter-spacing: -0.03em;
-    line-height: 0.95;
-    color: var(--accent);
+  .logo {
+    width: min(320px, 70vw);
+    height: auto;
+    display: block;
+    margin-bottom: 28px;
   }
 
   p {
-    margin: 0 0 18px;
+    margin: 0 0 14px;
     font-size: 18px;
     color: var(--muted);
     max-width: 48ch;
   }
 
   .email {
-    margin-top: 26px;
+    margin-top: 24px;
     display: inline-block;
     color: var(--text);
     text-decoration: none;
@@ -80,15 +77,12 @@
 <body>
   <div class="wrap">
     <main class="container">
-      <h1>Unburden</h1>
 
-      <p>
-        We’re working quietly.
-      </p>
+      <!-- Replace logo.png with your actual file name -->
+      <img src="logo.png" alt="Unburden" class="logo" />
 
-      <p>
-        More when it’s ready.
-      </p>
+      <p>We’re building it.</p>
+      <p>More when it’s ready.</p>
 
       <a class="email" href="mailto:amedeo@unburden.bio">
         amedeo@unburden.bio
