@@ -363,16 +363,17 @@
           <h2>Request a discovery call.</h2>
           <p>Tell us about your microbiology workflow. We’ll explore whether Unburden is a fit for your facility and current testing method.</p>
         </div>
-        <form class="discovery-form" id="discovery-form" action="https://formsubmit.co/amedeo@unburden.bio" method="POST">
-          <input type="hidden" name="_subject" value="New Unburden discovery call request" />
-          <input type="hidden" name="_next" value="https://www.unburden.bio/?submitted=true#contact" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" />
+        <form class="discovery-form" id="discovery-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="4a2508c2-8c29-484d-9967-95c896694536" />
+          <input type="hidden" name="subject" value="New Unburden discovery call request" />
+          <input type="hidden" name="from_name" value="Unburden website" />
+          <input type="hidden" name="redirect" value="https://www.unburden.bio/?submitted=true#contact" />
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" />
           <div class="form-success" id="form-success" role="status">Thank you. Your request has been sent, and we’ll be in touch.</div>
           <div class="field"><label for="first-name">First name</label><input id="first-name" name="First name" autocomplete="given-name" required /></div>
           <div class="field"><label for="last-name">Last name</label><input id="last-name" name="Last name" autocomplete="family-name" required /></div>
           <div class="field field-wide"><label for="company">Company</label><input id="company" name="Company" autocomplete="organization" required /></div>
-          <div class="field field-wide"><label for="email">Work email</label><input id="email" name="Email" type="email" autocomplete="email" required /></div>
+          <div class="field field-wide"><label for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" required /></div>
           <div class="field field-wide"><label for="message">What would you like to discuss?</label><textarea id="message" name="Message" placeholder="Tell us about your current testing workflow or application."></textarea></div>
           <label class="consent"><input type="checkbox" name="Contact consent" value="Agreed" required /><span>I agree that Unburden may use these details to contact me about this enquiry.</span></label>
           <button class="form-submit" type="submit">Request a discovery call →</button>
